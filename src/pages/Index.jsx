@@ -21,6 +21,7 @@ const Index = () => {
           <Link as={RouterLink} to="/categories">Categories</Link>
           <Link as={RouterLink} to="/about">About</Link>
           <Link as={RouterLink} to="/contact">Contact</Link>
+          <Link as={RouterLink} to="/register">Register</Link> {/* New Register Link */}
         </HStack>
       </Flex>
 

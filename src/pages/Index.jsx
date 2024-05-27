@@ -1,5 +1,5 @@
-import { Box, Container, Flex, Heading, Link, Text, VStack, HStack, Spacer } from "@chakra-ui/react";
-import { Link as RouterLink } from "react-router-dom";
+import { Box, Container, Flex, Heading, Link, Text, VStack, HStack, Spacer, Button } from "@chakra-ui/react";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const categories = [
@@ -10,6 +10,8 @@ const categories = [
 ];
 
 const Index = () => {
+  const navigate = useNavigate();
+
   return (
     <Container maxW="container.xl">
       <Flex as="nav" bg="blue.500" color="white" p={4} mb={8} justifyContent="space-between" alignItems="center">
@@ -21,7 +23,7 @@ const Index = () => {
           <Link as={RouterLink} to="/categories">Categories</Link>
           <Link as={RouterLink} to="/about">About</Link>
           <Link as={RouterLink} to="/contact">Contact</Link>
-          <Link as={RouterLink} to="/register">Register</Link> {/* New Register Link */}
+          <Link as={RouterLink} to="/register">Register</Link>
         </HStack>
       </Flex>
 
@@ -33,6 +35,9 @@ const Index = () => {
             <Link as={RouterLink} to={`/categories/${category.name.toLowerCase()}`} color="blue.500" mt={2} display="block">
               View Discussions
             </Link>
+            <Button mt={4} colorScheme="blue" onClick={() => navigate(`/categories/${category.name.toLowerCase()}/new-post`)}>
+              New Post
+            </Button>
           </Box>
         ))}
       </VStack>
